@@ -1,6 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
   <meta charset="UTF-8"/>
   <link rel="stylesheet" media="screen and (max-width: 600px)" href="shopmobile.css">
   <link rel="stylesheet" media="screen and (min-width: 601px)" href="shop.css">
@@ -11,7 +19,7 @@
   <title>E-Veg Shop</title>
 </head>
 <body>
-    <div class="hero"><div class="title">E-Veg</div>
+    <div class="hero"><div class="title"><a href="./index.html" style="color: white;">E-Veg</a></div>
     <div class="navbar">
       <div class="toggle-wrapper">
       <a href="#" class="toggle-button">
@@ -22,13 +30,27 @@
     </div>
       <div class="navbar-links">
         <ul>
-          <li><a href="#"><span>Contact</span></a></li>
-          <li><a id="search-link" href="#"><span>Search</span></a></li>
-          <li><a href="#"><span>About</span></a></li>
-          <li class="spacer">&nbsp;</li>
-          <li class="welcome"><a>Welcome Test User</a></li>
-          <li><a class="basket" href="checkout.html"><span>
-            Checkout</span></a></li>
+          <li><a href="#"><span><button class="btn btn-primary">Contact</button></span></a></li>
+          <li><a href="#"><span><button class="btn btn-primary">About</button></span></a></li>
+          <li id="search-link" href="#">
+              <form>
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchbox">
+              </form>
+            </li> 
+                  <li><a id="searchbutton" href="#">
+                    <button class="btn btn-primary" type="submit" id="srch"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg></button>
+                  </a>
+                </li>
+                </div>   
+          <li style="list-style-type: none;" class="spacer">&nbsp;</li>
+          <li style="list-style-type: none;" class="welcome"><a><button class="btn btn-primary">Welcome Test User</button></a></li>
+          <li style="list-style-type: none;"><a class="basket" href="checkout.html"><span><button class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+          </svg>Checkout</button></span></a>
+          </li>
+            
         </ul>
       </div>
 
@@ -60,11 +82,14 @@
       <div>&copy; 2021 InterVeg Coventry Ltd.</div>
       <div>Fresh produce from the Midland's green countryside.</div>
     </div>
-    <div id="cookieMessage"><h1>This site uses cookies</h1>
+    <div id="cookieMessage"><h3>This site uses cookies</h3>
+    <p><a id="closeCookies"><button type="button" class="close btn btn-primary btn-sm" aria-label="Close" style=" background-color: red;">
+      <span aria-hidden="true">&times;</span>
+    </button></a></p>
     <p>By using this site, you are consenting to our use of cookies</p>
     <p>We use cookies purely for the functionality of the website - to store the products that are in your basket.</p>
     <p>For further details of how we use your data, please see our privacy policy.</p>
-    <p><a id="acceptCookies">Accept</a></p>
+    <p><a id="acceptCookies"><button type="button" class="btn btn-success btn-sm">Accept</button></a><a id="declineCookies">   <button type="button" class="btn btn-danger btn-sm">Decline</button></a></p>
     </div>
 </body>
 </html>

@@ -50,10 +50,22 @@ var cardTemplate = `<div class="shop-product card" data-num="[EVEGPRODUCT#]">
       searchBar.classList.remove('active');
       redraw();
     });
+    
 
     //Close the cookies message
     document.getElementById('acceptCookies').addEventListener('click', ()=>{
       setCookie('cookieMessageSeen', true);
+      document.getElementById('cookieMessage').style.display = 'none';
+    });
+
+    //Close the cookies message
+    document.getElementById('declineCookies').addEventListener('click', ()=>{
+      setCookie('cookieMessageSeen', false);
+      document.getElementById('cookieMessage').style.display = 'none';
+    });
+
+    document.getElementById('closeCookies').addEventListener('click', ()=>{
+      setCookie('cookieMessageSeen', false);
       document.getElementById('cookieMessage').style.display = 'none';
     });
 
@@ -143,6 +155,8 @@ var cardTemplate = `<div class="shop-product card" data-num="[EVEGPRODUCT#]">
     // return true;
   }
 
+
+
   function sortFunction(a,b){
     return a.price > b.price;
   }
@@ -201,6 +215,8 @@ var cardTemplate = `<div class="shop-product card" data-num="[EVEGPRODUCT#]">
     }
   }
 
+  
+
   //Recalculate basket
   function refreshBasket(){
     let total = 0;
@@ -217,4 +233,6 @@ var cardTemplate = `<div class="shop-product card" data-num="[EVEGPRODUCT#]">
     }
     return total;
   }
+
+  
 

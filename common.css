@@ -27,19 +27,8 @@ button{
     float:left;
 }
 
-.searchbuttons span{
+.searchbuttons {
     color: white;
-    width: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top:0.25em;
-    padding: 0 1em;
-}
-.search-bar.active{
-    display:flex;
-    font-size: large;
-    justify-content: flex-end;
-    /* padding-right: 1em; */
 }
 
 
@@ -64,10 +53,6 @@ button{
     display: none;
     padding-bottom: 18px;
     padding-top: 4px;
-}
-
-.searchbuttons a span{
-    color: black;
 }
 
 html{
@@ -107,7 +92,21 @@ html{
 
 .navbar{
     height: 4em;
+    background-color: lightslategray;
+    overflow: hidden;
 }
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 60px;
+  }
 
 .navbar,li ul {
     display: flex;
@@ -135,11 +134,13 @@ html{
     display: flex;
     width: 100%;
     flex-wrap:wrap;
+    list-style-type: none;
 }
 
 .navbar-links{
     display: flex;
     width: 100%;
+    list-style-type: none;
 }
 
 .spacer{
@@ -160,22 +161,27 @@ html{
     text-align: center;
     padding: 0 1rem 0.5rem 1rem;
     display: block;
+    list-style-type: none;
 }
 
 .navbar-links ul li span{
     padding-bottom:2px;
+    
 }
 .navbar-links ul li ul{
     display:none;
+    list-style-type: none;
 }
 
 .navbar-links ul li:hover ul{
     display:flex;
+    list-style-type: none;
 }
 
 .navbar-links li ul{
     position:absolute;
     display: flex;
+    list-style-type: none;
 }
 .toggle-wrapper{
     position:absolute;
@@ -243,7 +249,9 @@ html{
     width: 100%;
     height: calc(100% - 6rem);
     display: inline-block;
-    color: var(--colour-1);
+    color: white;
+    background-color: black;
+
 }
 
 .imgspacer{
@@ -264,9 +272,20 @@ html{
 #acceptCookies{
     font-size: 100%;
     margin-top: 2rem;
+    color: black;
 }
+#closeCookies{
+    position:absolute; 
+    top:0; 
+    right:0;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
 p{
-    font-size: 150%;
+    font-size: 100%;
 }
 
 body{
