@@ -1,8 +1,4 @@
 /*Common CSS to be shown on all versions (mobile/desktop)*/
-.productBasketDiv{
-    width: 8em;
-}
-
 button{
     background-color: var(--colour-2);
     color:var(--colour-1);
@@ -10,25 +6,35 @@ button{
 }
 
 .shop-product-img img{
-    width: 8rem;
-    height: 8rem;
-    object-fit: cover;
-    vertical-align: middle;
+    height: 12rem;
+    object-fit: fill;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px
 }
-.shop-product-desc{
+/* .shop-product-desc{
     display:none;
-}
+} */
 
 .shop-product{
-    font-size: 200%;
+    font-size: 100%;
 }
 
-.shop-product-price{
+/* .shop-product-price{
     float:left;
-}
+} */
 
 .searchbuttons {
     color: white;
+}
+
+.card{
+    margin-right:20px!important;
+    }
+
+.card-deck{
+        display: inline-flex;
 }
 
 
@@ -69,7 +75,6 @@ html{
 
 
 .shop-product{
-    width: 20%;
     float: left;
 
 }
@@ -114,6 +119,23 @@ html{
     align-items: center;
     color: white;
     padding-top: 0.5em;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+  }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .about{
