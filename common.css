@@ -30,13 +30,58 @@ button{
 }
 
 .card{
-    margin-right:20px!important;
+    margin-right:15px!important;
+    margin-left: 15px!important;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     }
 
 .card-deck{
         display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        text-align: center;
 }
 
+.popup {
+    text-align: center;
+    display: none;
+    position: fixed;
+    padding: 10px;
+    width: 280px;
+    left: 50%;
+    margin-left: -150px;
+    height: 140px;
+    top: 50%;
+    margin-top: -100px;
+    background: #FFF;
+    border: 3px solid green;
+    z-index: 20;
+  }
+  
+  #popup:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: -2;
+  }
+  
+  #popup:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #FFF;
+    z-index: -1;
+  }
 
 .searchbox{
     margin-right: 1em;
@@ -58,7 +103,7 @@ button{
 .search-bar{
     display: none;
     padding-bottom: 18px;
-    padding-top: 4px;
+    padding-top: 10px;
 }
 
 html{
@@ -95,11 +140,38 @@ html{
     padding-right:2rem;
 }
 
-.navbar{
-    height: 4em;
-    background-color: lightslategray;
+#navbar {
     overflow: hidden;
-}
+    background-color: #333;
+    z-index: 9999;
+  }
+  
+  /* Navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  /* Page content */
+.content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 60px;
+  }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
@@ -118,7 +190,6 @@ html{
     justify-content: left;
     align-items: center;
     color: white;
-    padding-top: 0.5em;
 }
 
 .center {
@@ -185,6 +256,13 @@ input[type=number] {
     display: block;
     list-style-type: none;
 }
+.row {
+    display: flex;
+  }
+  
+.column {
+    flex: 50%;
+  }
 
 .navbar-links ul li span{
     padding-bottom:2px;

@@ -23,7 +23,7 @@ var cardTemplate = `<div class="card-deck">
 <li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-primary">-</button>
 <input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%">
 <button class="btn adjustUp btn btn-primary">+</button></li>
-<li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="addToBasket btn btn-primary center-block"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+<li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="addToBasket btn btn-primary center-block" onclick="show('popup')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
 <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
 </svg>Add to Basket</button></li>
 </ul></div></div></div>`;
@@ -45,6 +45,12 @@ var cardTemplate = `<div class="card-deck">
       searchBar.classList.toggle('active');
       document.getElementById('searchbox').focus();
     });
+
+    document.getElementById('searchbox').addEventListener('keyup', ()=>{
+      searchStr = document.getElementById('searchbox').value;
+      redraw();
+    });
+
 
     //Close the search bar
     document.getElementById('searchbutton').addEventListener('click', ()=>{
@@ -227,6 +233,10 @@ var cardTemplate = `<div class="card-deck">
       document.querySelector('.productListOther').innerHTML = '<div id="sectGroceries"><span><h1 style="width: 100%;">Groceries</h1></span></div>'
     }
 
+    if (numProductsFruit == 0 && numProductsOther == 0 && numProductsVeg == 0) {
+      document.querySelector('.productListVegetables').innerHTML = '<div id="sectVeg"><span><h1 style="width: 100%; color:red">Error: No products found from search.<br></h1></span></div>'
+    }
+
     for(var i = 0; i < numProductsFruit; i++){
       var cardHTML = cardTemplate.replaceAll("[EVEGPRODUCT#]",shownProductsFruit[i].productID);
       var thisProduct = document.createElement("div");
@@ -259,10 +269,10 @@ var cardTemplate = `<div class="card-deck">
           element.innerHTML = "<span class=\"imgspacer\"></span><img src=\"images/"+productDetails[num].image + "\"></img>";
           break;
         case "price":
-          element.innerHTML = "<span>£"+(productDetails[num].price/100).toFixed(2)+"</span>";
+          element.innerHTML = "<span>Price: £"+(productDetails[num].price/100).toFixed(2)+"</span>";
           break;
         case "units":
-          element.innerHTML = "<span>"+productDetails[num].packsize + " " + productDetails[num].units+"</span>";
+          element.innerHTML = "<span> Amount: "+productDetails[num].packsize + " " + productDetails[num].units+"</span>";
           break;
       }
 

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <div class="popup" id="popup">
+    <h2 style="color: green"> Success!</h2>
+    <p style="text-align: center;">Successfully added items to the basket.</p>
+    <a href="#" onclick="hide('popup')" style="text-align: center;"><button type="button" class="btn btn-danger btn-sm">Close</button></a>
+  </div>
    <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -9,6 +14,18 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <script>
+  $ = function(id) {
+    return document.getElementById(id);
+  }
+  
+  var show = function(id) {
+    $(id).style.display ='block';
+  }
+  var hide = function(id) {
+    $(id).style.display ='none';
+  } 
+  </script>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" media="screen and (max-width: 600px)" href="shopmobile.css">
   <link rel="stylesheet" media="screen and (min-width: 601px)" href="shop.css">
@@ -20,7 +37,7 @@
 </head>
 <body>
     <div class="hero"><div class="title"><a href="./index.html" style="color: white;">E-Veg</a></div>
-    <div class="navbar">
+    <div class="navbar" id="navbar">
       <div class="toggle-wrapper">
       <a href="#" class="toggle-button">
         <span class="bar"></span>
@@ -30,15 +47,17 @@
     </div>
       <div class="navbar-links">
         <ul>
-          <li><a href="#"><span><button class="btn btn-primary">Contact</button></span></a></li>
-          <li><a href="#"><span><button class="btn btn-primary">About</button></span></a></li>
+          <li><a href="./contact.html"><span><button class="btn btn-primary">Contact</button></span></a></li>
+          <li><a href="./about.html"><span><button class="btn btn-primary">About</button></span></a></li>
           <li><a href="#sectFruits"><span><button class="btn btn-primary">Fruits</button></span></a></li>
           <li><a href="#sectVeg"><span><button class="btn btn-primary">Vegetables</button></span></a></li>
           <li><a href="#sectGroceries"><span><button class="btn btn-primary">Groceries</button></span></a></li>
-          <li id="search-link" href="#">
-              <form>
+          <li id="search-link" href="#"><span><a>
+              <form id="searchform">
               <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchbox">
               </form>
+            </a>
+              </span>
             </li> 
                   <li><a id="searchbutton" href="#">
                     <button class="btn btn-primary" type="submit" id="srch"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -48,7 +67,7 @@
                 </li>
                 </div>   
           <li style="list-style-type: none;" class="spacer">&nbsp;</li>
-          <li style="list-style-type: none;" class="welcome"><a><button class="btn btn-primary">Welcome Test User</button></a></li>
+          <li style="list-style-type: none;" class="welcome"><a><button class="btn btn-primary">Welcome Test User</button></a></span></li>
           <li style="list-style-type: none;"><a class="basket" href="checkout.html"><span><button class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
             <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
           </svg>Checkout</button></span></a>
@@ -100,5 +119,25 @@
     <p>For further details of how we use your data, please see our privacy policy.</p>
     <p><a id="acceptCookies"><button type="button" class="btn btn-success btn-sm">Accept</button></a><a id="declineCookies">   <button type="button" class="btn btn-danger btn-sm">Decline</button></a></p>
     </div>
+    <script>
+      // When the user scrolls the page, execute myFunction
+      window.onscroll = function() {myFunction()};
+
+      // Get the navbar
+      var navbar = document.getElementById("navbar");
+
+      // Get the offset position of the navbar
+      var sticky = navbar.offsetTop;
+
+      // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      } 
+      </script>
+            
 </body>
 </html>
