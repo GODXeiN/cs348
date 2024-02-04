@@ -1,17 +1,12 @@
 /*Common CSS to be shown on all versions (mobile/desktop)*/
-button{
-    background-color: var(--colour-2);
-    color:var(--colour-1);
-    font-size: 100%;
-}
 
 .shop-product-img img{
-    height: 12rem;
-    object-fit: fill;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px
 }
 /* .shop-product-desc{
     display:none;
@@ -30,19 +25,17 @@ button{
 }
 
 .card{
+    flex: 0 0 200px;
     margin-right:15px!important;
     margin-left: 15px!important;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
     }
 
 .card-deck{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: auto;
+    text-align: center;
 }
 
 .popup {
@@ -118,16 +111,17 @@ html{
 
 }
 
-
-.shop-product{
-    float: left;
-
-}
-
 .menu{
     position:absolute;
     height: 100%;
     border-right: solid 5px hsl(var(--colour-1-h),var(--colour-1-s),var(--colour-1-l));
+}
+
+#bannerimage {
+    width: 100%;
+    background-image: url(images/banner.png);
+    height: 250px;
+    background-position: center;
 }
 
 .productList{
@@ -142,18 +136,31 @@ html{
 
 #navbar {
     overflow: hidden;
-    background-color: #333;
     z-index: 9999;
+    background-color:rgba(255, 255, 255, 0.85);
   }
+
+  .chat {
+    height: 100px;
+    width: 100px;
+    background-color: #ff1c1c;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    border: 0;
+    z-index: 9999;
+    border: 15px #333;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,1);
+    }
   
   /* Navbar links */
 #navbar a {
     float: left;
     display: block;
-    color: #f2f2f2;
     text-align: center;
     padding: 14px;
-    text-decoration: none;
   }
   
   /* Page content */
@@ -190,6 +197,7 @@ html{
     justify-content: left;
     align-items: center;
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.6);
 }
 
 .center {
@@ -219,7 +227,9 @@ input[type=number] {
     text-align: center;
 }
 
-
+.navbar-custom {
+    background-color: white;
+}
 
 .navbar-links ul{
     margin: 0;
@@ -236,6 +246,15 @@ input[type=number] {
     list-style-type: none;
 }
 
+#center-content {
+    /* Lets middle column shrink/grow to available width */
+    flex: 1 1 auto;
+}
+
+.spacer-middle{
+    flex-grow: 0.35;
+}
+
 .spacer{
     flex-grow: 1;
     /* width: 10%; */
@@ -243,14 +262,13 @@ input[type=number] {
 
 .navbar-links li{
     list-style: none;
-}form { 
+}
+form { 
     margin: 0 auto; 
     width:250px;
     }
 
 .navbar-links li a, .subnavbar-links li a{
-    color: var(--colour-1);
-    text-decoration: none;
     font-size:1.5em;
     font-weight: 600;
     min-width: 4em;
@@ -293,20 +311,6 @@ input[type=number] {
     background: rgba(0,0,0,0.25) ;
     /* background: black; */
     padding: 1em;
-}
-.toggle-button{
-    display:none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-}
-
-.toggle-button .bar{
-    height: 3px;
-    width: 100%;
-    background-color:white;
-    border-radius: 10px;
 }
 
 .toggle-wrapper{
@@ -358,8 +362,9 @@ input[type=number] {
 }
 
 .imgspacer{
-    display:inline-block;
-    height:100%;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
     vertical-align: middle;
 }
 
@@ -392,7 +397,17 @@ p{
 }
 
 body{
-    background-color: var(--colour-2);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(images/background.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
     margin:0;
     padding: 0;
 }
