@@ -34,12 +34,7 @@ function showCreditCardPage(){
 */
 function calculateBasket(){
   let total = 0;
-  let basket = 0;
-  let error = 0;
-  try {
-    basket=JSON.parse(getCookie("basket"));
-  }
-  catch(err) {error = 1}
+  let basket = JSON.parse(getCookie("basket"));
   document.querySelector('.checkoutList').innerHTML = '';
   for(const productID in basket){
     let quantity = basket[productID];
@@ -52,9 +47,6 @@ function calculateBasket(){
     document.querySelector('.checkoutList').appendChild(thisProduct);
   }
   let rowHTML = `<td colspan="3">Total:</td><td>£${(total / 100).toFixed(2)}</td>`;
-  if (error == 1) {
-    rowHTML = `<h2 style="color: red">Your basket is empty!</h2>`
-  }
   var thisProduct = document.createElement("tr");
   thisProduct.innerHTML = rowHTML;
   document.querySelector('.checkoutList').appendChild(thisProduct);

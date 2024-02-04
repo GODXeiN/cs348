@@ -1,4 +1,8 @@
 /*Common CSS to be shown on all versions (mobile/desktop)*/
+.productBasketDiv{
+    width: 8em;
+}
+
 button{
     background-color: var(--colour-2);
     color:var(--colour-1);
@@ -6,82 +10,38 @@ button{
 }
 
 .shop-product-img img{
-    height: 12rem;
-    object-fit: fill;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20px
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    vertical-align: middle;
 }
-/* .shop-product-desc{
+.shop-product-desc{
     display:none;
-} */
+}
 
 .shop-product{
-    font-size: 100%;
+    font-size: 200%;
 }
 
-/* .shop-product-price{
+.shop-product-price{
     float:left;
-} */
+}
 
-.searchbuttons {
+.searchbuttons span{
     color: white;
+    width: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top:0.25em;
+    padding: 0 1em;
+}
+.search-bar.active{
+    display:flex;
+    font-size: large;
+    justify-content: flex-end;
+    /* padding-right: 1em; */
 }
 
-.card{
-    margin-right:15px!important;
-    margin-left: 15px!important;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    }
-
-.card-deck{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        text-align: center;
-}
-
-.popup {
-    text-align: center;
-    display: none;
-    position: fixed;
-    padding: 10px;
-    width: 280px;
-    left: 50%;
-    margin-left: -150px;
-    height: 140px;
-    top: 50%;
-    margin-top: -100px;
-    background: #FFF;
-    border: 3px solid green;
-    z-index: 20;
-  }
-  
-  #popup:after {
-    position: fixed;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: -2;
-  }
-  
-  #popup:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #FFF;
-    z-index: -1;
-  }
 
 .searchbox{
     margin-right: 1em;
@@ -103,7 +63,11 @@ button{
 .search-bar{
     display: none;
     padding-bottom: 18px;
-    padding-top: 10px;
+    padding-top: 4px;
+}
+
+.searchbuttons a span{
+    color: black;
 }
 
 html{
@@ -120,6 +84,7 @@ html{
 
 
 .shop-product{
+    width: 20%;
     float: left;
 
 }
@@ -140,73 +105,16 @@ html{
     padding-right:2rem;
 }
 
-#navbar {
-    overflow: hidden;
-    background-color: #333;
-    z-index: 9999;
-  }
-  
-  /* Navbar links */
-#navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-  }
-  
-  /* Page content */
-.content {
-    padding: 16px;
-  }
-  
-  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-    padding-top: 60px;
-  }
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-  .sticky + .content {
-    padding-top: 60px;
-  }
+.navbar{
+    height: 4em;
+}
 
 .navbar,li ul {
     display: flex;
     justify-content: left;
     align-items: center;
     color: white;
-}
-
-.center {
-    margin: auto;
-    width: 50%;
-  }
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+    padding-top: 0.5em;
 }
 
 .about{
@@ -227,13 +135,11 @@ input[type=number] {
     display: flex;
     width: 100%;
     flex-wrap:wrap;
-    list-style-type: none;
 }
 
 .navbar-links{
     display: flex;
     width: 100%;
-    list-style-type: none;
 }
 
 .spacer{
@@ -243,10 +149,7 @@ input[type=number] {
 
 .navbar-links li{
     list-style: none;
-}form { 
-    margin: 0 auto; 
-    width:250px;
-    }
+}
 
 .navbar-links li a, .subnavbar-links li a{
     color: var(--colour-1);
@@ -257,34 +160,22 @@ input[type=number] {
     text-align: center;
     padding: 0 1rem 0.5rem 1rem;
     display: block;
-    list-style-type: none;
 }
-.row {
-    display: flex;
-  }
-  
-.column {
-    flex: 50%;
-  }
 
 .navbar-links ul li span{
     padding-bottom:2px;
-    
 }
 .navbar-links ul li ul{
     display:none;
-    list-style-type: none;
 }
 
 .navbar-links ul li:hover ul{
     display:flex;
-    list-style-type: none;
 }
 
 .navbar-links li ul{
     position:absolute;
     display: flex;
-    list-style-type: none;
 }
 .toggle-wrapper{
     position:absolute;
@@ -352,9 +243,7 @@ input[type=number] {
     width: 100%;
     height: calc(100% - 6rem);
     display: inline-block;
-    color: white;
-    background-color: black;
-
+    color: var(--colour-1);
 }
 
 .imgspacer{
@@ -375,20 +264,9 @@ input[type=number] {
 #acceptCookies{
     font-size: 100%;
     margin-top: 2rem;
-    color: black;
 }
-#closeCookies{
-    position:absolute; 
-    top:0; 
-    right:0;
-    padding-top:1rem;
-    padding-bottom:1rem;
-    padding-left:1rem;
-    padding-right:1rem;
-}
-
 p{
-    font-size: 100%;
+    font-size: 150%;
 }
 
 body{
@@ -408,9 +286,7 @@ a:visited{
 form.customerDetails {
 background: #f9f9f9;
 border: 1px solid #c1c1c1;
-margin: 0 auto; 
-width:400px;
-text-align: center;
+width: 50%;
 }
 
 form.customerDetails label {
