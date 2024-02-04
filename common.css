@@ -122,6 +122,8 @@ html{
     background-image: url(images/banner.png);
     height: 250px;
     background-position: center;
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent)
 }
 
 .productList{
@@ -148,7 +150,7 @@ html{
     display: inline-block;
     position: fixed;
     bottom: 40px;
-    left: 40px;
+    right: 40px;
     border: 0;
     z-index: 9999;
     border: 15px #333;
@@ -370,7 +372,7 @@ form {
 
 #cookieMessage{
     position: fixed;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     background-color:rgba(255, 255, 255, 1);
     box-shadow: -20px -20px 20px -20px black;
