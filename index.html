@@ -31,7 +31,6 @@
   } 
   </script>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" media="screen and (max-width: 600px)" href="shopmobile.css">
   <link rel="stylesheet" media="screen and (min-width: 601px)" href="shop.css">
   <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="colours.css">
@@ -54,27 +53,33 @@
           <li style="background-color: #333"><a href="./index.html"><span> <img src="images/logo.png" alt="company logo" style="height:34px; width:auto"></span></a></li>
           <li style="background-color: #333"><a href="./contact.html"><span><button class="btn btn-success">Contact</button></span></a></li>
           <li style="background-color: #333"><a href="./about.html"><span><button class="btn btn-success">About</button></span></a></li>
-          <li><span><img src="images/left-nav.png" alt="left nav decoration" style="height:68px; width:auto; margin:0; display:block"></span></li>
+          <li class="divider"><span><img src="images/left-nav.png" alt="left nav decoration" class="divider"></span></li>
           <li style="list-style-type: none;" class="spacer-middle">&nbsp;</li>
           <li><a href="#sectFruits"><span><button class="btn btn-primary">Fruits</button></span></a></li>
           <li><a href="#sectVeg"><span><button class="btn btn-primary">Vegetables</button></span></a></li>
           <li><a href="#sectGroceries"><span><button class="btn btn-primary">Groceries</button></span></a></li>
-          <li id="search-link" href="#"><span><a>
+          <li id="search-link" href="#" style="display:block"><span><a>
               <form id="searchform">
               <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchbox">
               </form>
             </a>
               </span>
             </li> 
-                  <li><a id="searchbutton" href="#">
+            <li style="list-style-type: none;"><a id="searchbutton" href="#" style="margin-left: 0px;">
                     <button class="btn btn-primary" type="submit" id="srch"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                     </svg></button>
-                  </a>
+                  </a> 
                 </li>
-                </div>   
-          <li style="list-style-type: none;" class="spacer">&nbsp;</li>
-          <li style="list-style-type: none;"><span><img src="images/right-nav.png" alt="right nav decoration" style="height:68px; width:auto; margin:0; display:block"></span></li>
+          <li style="list-style-type: none;  display:flex;" class="spacer">&nbsp;</li>
+          <button class="btn btn-success phone-navbar" style="padding: 0px">
+            <div class="container phone-navbar" onclick="navbarMobile(this)">
+              <div class="bar1 phone-navbar"></div>
+              <div class="bar2 phone-navbar"></div>
+              <div class="bar3 phone-navbar"></div>
+            </div>
+          </button>
+          <li style="list-style-type: none;" class="divider"><span><img src="images/right-nav.png" alt="right nav decoration" class="divider"></span></li>
           <li style="list-style-type: none; background-color: #333;" class="welcome"><a><button class="btn btn-success" style="padding: 9px">Welcome Test User</button></a></span></li>
           </li>
             
@@ -143,6 +148,11 @@
         }
       } 
       </script>
+      <script>
+        function navbarMobile(x) {
+          x.classList.toggle("change");
+        }
+        </script>
             
 </body>
 </html>
