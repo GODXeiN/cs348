@@ -23,7 +23,7 @@ var cardTemplate = `<div class="card-deck">
 <li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success">-</button>
 <input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%">
 <button class="btn adjustUp btn btn-success">+</button></li>
-<li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="addToBasket btn btn-success center-block" onclick="show('popup')">
+<li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="btn btn-success center-block addToBasket" onclick="show('popup')">
 </svg>Add to Cart</button></li>
 </ul></div></div></div></li>`;
 
@@ -71,14 +71,8 @@ var cardTemplate = `<div class="card-deck">
       document.getElementById('cookieMessage').style.display = 'none';
     });
 
-    //Close the cookies message
-    document.getElementById('declineCookies').addEventListener('click', ()=>{
-      setCookie('cookieMessageSeen', false);
-      document.getElementById('cookieMessage').style.display = 'none';
-    });
-
     document.getElementById('closeCookies').addEventListener('click', ()=>{
-      setCookie('cookieMessageSeen', false);
+      setCookie('cookieMessageSeen', true);
       document.getElementById('cookieMessage').style.display = 'none';
     });
 
@@ -114,8 +108,8 @@ var cardTemplate = `<div class="card-deck">
     }
     elements = document.getElementsByClassName("addToBasket");
     for(eIn = 0; eIn < elements.length; eIn++){
-      elements[eIn].removeEventListener("click",increment);
-      elements[eIn].addEventListener("click",increment);
+      elements[eIn].removeEventListener("click");
+      elements[eIn].addEventListener("click");
     }
   }
 
