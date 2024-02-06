@@ -21,7 +21,7 @@ var cardTemplate = `<div class="card-deck">
 <li style="list-style-type: none;" class="list-group-item shop-product-details shop-product-units" data-field="units" data-num="[EVEGPRODUCT#]"></li>
 <li style="list-style-type: none;" class="shop-product-buying" data-num="[EVEGPRODUCT#]"></li>
 <li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success">-</button>
-<input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%">
+<input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%; text-align:center">
 <button class="btn adjustUp btn btn-success">+</button></li>
 <li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="btn btn-success center-block addToBasket" onclick="show('popup')">
 </svg>Add to Cart</button></li>
@@ -144,7 +144,7 @@ var cardTemplate = `<div class="card-deck">
   function decrement(ev){
     var thisID = ev.target.parentElement.closest(".card__content").getAttribute("data-num");
     if(basket[thisID] === undefined){
-      changeQuantity(thisID,0);
+      changeQuantity(thisID,1);
     }else{
       if(basket[thisID] > 0){
         changeQuantity(thisID,parseInt(basket[thisID])-1);
