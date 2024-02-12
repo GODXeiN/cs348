@@ -125,5 +125,32 @@
             $('[data-toggle="tooltip"]').tooltip();
           });
         </script>
+        <script>
+          $('document').ready(function(){
+          let buttons = document.getElementsByClassName("buyInput");
+          console.log(buttons);
+          for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("keyup", function () {
+              try {
+                basket=JSON.parse(getCookie("basket"));
+              }
+              catch(err) {error = 1}
+              if (Object.keys(basket).length == 0){
+                error = 1
+              }
+              console.log(buttons[i]);
+              productid = this.dataset.num;
+              test = this.value;
+              console.log(test);
+              console.log(productid);
+              if (test != null && productid != null) {
+                basket[productid] = test;
+                setCookie('basket', JSON.stringify(basket));
+              }
+              init();
+            });
+          }
+        })
+        </script>
     </body>
 </html>
