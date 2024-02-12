@@ -199,6 +199,14 @@ html{
   .change .bar3 {
     transform: translate(0, -11px) rotate(45deg);
   }
+
+  #mobile {
+    display: none;
+    position: fixed;
+    top: 64px;
+    width: 100%;
+    z-index: 10000;
+  }
   
 
   .chat {
@@ -216,6 +224,8 @@ html{
     box-shadow: 0 16px 32px 0 rgba(0,0,0,1);
     }
     .count {
+        min-width: 40px;
+        min-height: 40px;
         background-color: #31B0D5;
         border-radius: 50%;
         display: inline-block;
@@ -262,6 +272,29 @@ html{
   
   /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
   .sticky + .content {
+    padding-top: 60px;
+  }
+
+  .stickyMobile {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.stickyMobile + .content {
+    padding-top: 60px;
+  }
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.stickyMobile {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .stickyMobile + .content {
     padding-top: 60px;
   }
 

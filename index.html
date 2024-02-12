@@ -41,7 +41,7 @@
 <body>
   <a class="basket" href="checkout.html" style="border: 15px #333"><button class="btn btn-info chat"> <img src="images/shop.png" alt="shopping cart logo" style="height:80px; width:auto"></button></span></a>
   <a style="border: 15px #333"><button class="btn btn-info count"><p style="text-align: center"><div id="count"></div></p></button></span></a>
-    <div class="navbar navbar-custom" id="navbar">
+    <div class="navbar navbar-custom" id="navbar" style="margin-bottom: 0px;">
       <div class="toggle-wrapper">
       <a href="#" class="toggle-button">
         <span class="bar"></span>
@@ -74,7 +74,7 @@
                 </li>
           <li style="list-style-type: none;  display:flex;" class="spacer">&nbsp;</li>
           <button class="btn btn-success phone-navbar" style="padding: 0px">
-            <div class="container phone-navbar" onclick="navbarMobile(this)">
+            <div class="container phone-navbar" onclick="navbarMobile(this); showMobile();">
               <div class="bar1 phone-navbar"></div>
               <div class="bar2 phone-navbar"></div>
               <div class="bar3 phone-navbar"></div>
@@ -85,9 +85,16 @@
           </li>
             
         </ul>
+        
       </div>
-
+      
     </div>
+    <ul style="padding-left: 0; width: 100%;" id="mobile" style="display: none">
+      <li style="list-style-type: none;background-color: rgba(255, 255, 255, 0.85); padding-bottom: 10px; padding-top: 10px;" class="welcome"><a><button class="btn btn-success center-block" style="width: 80%">Welcome Test User</button></a></span></li>
+      <li style="list-style-type: none;background-color: rgba(255, 255, 255, 0.85); padding-bottom: 10px;"><a href="./index.html"><span><button class="btn btn-success center-block" style="width: 80%">Home</button></span></a></li>
+      <li style="list-style-type: none;background-color: rgba(255, 255, 255, 0.85); padding-bottom: 10px;"><a href="./contact.html"><span><button class="btn btn-success center-block" style="width: 80%">Contact</button></span></a></li>
+      <li style="list-style-type: none;background-color: rgba(255, 255, 255, 0.85); padding-bottom: 10px;"><a href="./about.html"><span><button class="btn btn-success center-block" style="width: 80%">About</button></span></a></li>
+    </ul>
 
     <div class="search-bar">
       <input type="text" id="searchbox"></input>
@@ -150,8 +157,18 @@
       } 
       </script>
       <script>
+        let mobileShow = 0;
         function navbarMobile(x) {
           x.classList.toggle("change");
+        }
+        function showMobile() {
+          if (mobileShow == 0) {
+          document.getElementById("mobile").style.display = "inline-block";
+          mobileShow = 1;
+          } else {
+            document.getElementById("mobile").style.display = "none";
+            mobileShow = 0;
+          }
         }
         </script>
             
