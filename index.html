@@ -5,19 +5,29 @@
 <head>
   <div id="full-screen">
   </div>
-  <div class="popup" id="popup">
+  <div class="popupSuccess" id="popupSuccess">
     <h2 style="color: green"> Success!</h2>
     <p style="text-align: center;">Successfully added items to the basket.</p>
-    <a href="#" onclick="hide('popup')" style="text-align: center;"><button type="button" class="btn btn-danger btn-sm">Close</button></a>
+    <a href="#" onclick="hide('popupSuccess')" style="text-align: center;"><button type="button" class="btn btn-danger btn-sm">Close</button></a>
   </div>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel" style="color: green; text-align:center;">Success!</h2>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        Successfully added item(s) to cart.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger center-block" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
    <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
   <script>
   $ = function(id) {
     return document.getElementById(id);
@@ -35,10 +45,24 @@
   <link rel="stylesheet" href="colours.css">
   <script src="products.js"></script>
   <script src="shop.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltipS"]').click(function () {
+         $('[data-toggle="tooltipS"]').tooltip("show");
+      });
+  });
+  </script>
   <title>E-Veg Shop</title>
 </head>
 <body>
-  <a class="basket" href="checkout.html" style="border: 15px #333"><button class="btn btn-info chat"> <img src="images/shop.png" alt="shopping cart logo" style="height:80px; width:auto"></button></span></a>
+  <a class="basket" href="checkout.html" style="border: 15px #333"><button class="btn btn-info chat" data-toggle="tooltip" data-placement="left" title="View Cart"> <img src="images/shop.png" alt="shopping cart logo" style="height:80px; width:auto"></button></span></a>
   <a style="border: 15px #333"><button class="btn btn-info count"><p style="text-align: center"><div id="count"></div></p></button></span></a>
     <div class="navbar navbar-custom" id="navbar" style="margin-bottom: 0px;">
       <div class="toggle-wrapper">
@@ -169,7 +193,6 @@
             mobileShow = 0;
           }
         }
-        </script>
-            
+        </script> 
 </body>
 </html>

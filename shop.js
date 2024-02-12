@@ -14,21 +14,22 @@ var cardTemplate = `<div class="card-deck">
 <div class="card__content" data-num="[EVEGPRODUCT#]" style="box-shadow: 20px 20px 40px #000000;">
 <div class="shop-product-details bg-primary shop-product-img" data-field="img" data-num="[EVEGPRODUCT#]" style="border-radius: 5px;"></div>
 <div class="card-body" style="box-shadow: 20px 20px 40px;">
-<div class="shop-product-details shop-product-title card__title list-group-item" data-field="title" data-num="[EVEGPRODUCT#]"></div>
+<strong><div class="shop-product-details shop-product-title card__title list-group-item" data-field="title" data-num="[EVEGPRODUCT#]" style="font-size: 21px"></div></strong>
 </div>
 <ul style="list-style-type: none; box-shadow: 8px 8background-color: #e0bdfcpx 40px;" class="list-group list-group-flush">
 <li style="list-style-type: none;" class="list-group-item shop-product-details shop-product-price" data-field="price" data-num="[EVEGPRODUCT#]"></li>
 <li style="list-style-type: none;" class="list-group-item shop-product-details shop-product-units" data-field="units" data-num="[EVEGPRODUCT#]"></li>
 <li style="list-style-type: none;" class="shop-product-buying" data-num="[EVEGPRODUCT#]"></li>
-<li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success">-</button>
+<li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Decrease quantity">-</button>
 <input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%; text-align:center">
-<button class="btn adjustUp btn btn-success">+</button> <button class="btn btn-success center-block addToBasket" onclick="show('popup')">Add to Cart</button></li>
+<button class="btn adjustUp btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Increase quantity">+</button> <button class="btn btn-success center-block addToBasket" data-toggle="modal" data-target="#exampleModal">Add to Cart</button></li>
 </ul></div></div></div></li>`;
 
   function init(){
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
     const hero = document.getElementsByClassName('hero')[0];
     const navbarLinks = document.getElementsByClassName('navbar-links')[0];
+    refreshBasket()
 
     //When the toggle button is pressed (if visible by the screen size, the menu is shown)
     toggleButton.addEventListener('click',()=>{
@@ -258,10 +259,10 @@ var cardTemplate = `<div class="card-deck">
           element.innerHTML = "<span class=\"imgspacer\"></span><img src=\"images/"+productDetails[num].image + "\"></img>";
           break;
         case "price":
-          element.innerHTML = "<span>Price: £"+(productDetails[num].price/100).toFixed(2)+"</span>";
+          element.innerHTML = "<span> <b>Price</b>: £"+(productDetails[num].price/100).toFixed(2)+"</span>";
           break;
         case "units":
-          element.innerHTML = "<span> Amount: "+productDetails[num].packsize + " " + productDetails[num].units+"</span>";
+          element.innerHTML = "<span> <b>Amount</b>: "+productDetails[num].packsize + " " + productDetails[num].units+"</span>";
           break;
       }
 

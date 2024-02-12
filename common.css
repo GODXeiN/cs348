@@ -38,7 +38,7 @@
     text-align: center;
 }
 
-.popup {
+.popupSuccess {
     text-align: center;
     display: none;
     position: fixed;
@@ -53,8 +53,11 @@
     border: 3px solid green;
     z-index: 20;
   }
+#exampleModal {
+  top: 30%;
+}
   
-  #popup:after {
+  #popupSuccess:after {
     position: fixed;
     content: "";
     top: 0;
@@ -65,7 +68,7 @@
     z-index: -2;
   }
   
-  #popup:before {
+  #popupSuccess:before {
     position: absolute;
     content: "";
     top: 0;
@@ -127,31 +130,8 @@ html{
 }
 
 .tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+    z-index: 99999999;
   }
-  
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 105%;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-
 .productList{
     margin-bottom: 2rem;
     margin-left: 2rem;
@@ -358,7 +338,7 @@ input[type=number] {
 }
 
 .spacer-middle{
-    flex-grow: 0.35;
+    flex-grow: 0.5;
 }
 
 .spacer{
@@ -537,11 +517,18 @@ a:visited{
 
 
 form.customerDetails {
-background: #f9f9f9;
-border: 1px solid #c1c1c1;
+background-color:rgba(255, 255, 255, 0.85);
 margin: 0 auto; 
-width:400px;
+width:90%;
+max-width: 900px;
 text-align: center;
+padding-top: 25px;
+padding-bottom: 25px;
+box-shadow: 0 16px 32px 0 rgba(0,0,0,1);
+}
+
+.tooltip {
+  position: fixed;
 }
 
 form.customerDetails label {
@@ -549,6 +536,7 @@ display: block;
 }
 
 form.customerDetails input {
+max-width: 400px;
 width: 80%;
 }
 form.customerDetails button{
@@ -574,7 +562,7 @@ form.customerDetails button{
 }
 
 .checkoutList tr:last-child td:first-child{
-    text-align: right;
+    text-align: center;
 }
 
 @media screen and (max-width:1375px) {  

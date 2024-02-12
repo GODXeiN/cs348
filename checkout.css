@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,1);
+  }
+  
+  th, td, tr {
+    text-align: center;
+    padding: 8px;
+    flex: 0 0 auto;
+    width: 90px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  img {    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;}
+
+    @media screen and (max-width:800px) {  
+      img {
+        display: none;
+      }
+    }
+      
