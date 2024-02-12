@@ -56,6 +56,10 @@
 #exampleModal {
   top: 30%;
 }
+.btn-success {
+  background-color: #417041;
+  border-color: #417041;
+}
   
   #popupSuccess:after {
     position: fixed;

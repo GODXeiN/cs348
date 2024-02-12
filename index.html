@@ -82,17 +82,17 @@
           <li><a href="#sectFruits"><span><button class="btn btn-primary">Fruits</button></span></a></li>
           <li><a href="#sectVeg"><span><button class="btn btn-primary">Vegetables</button></span></a></li>
           <li><a href="#sectGroceries"><span><button class="btn btn-primary">Groceries</button></span></a></li>
-          <li id="search-link" href="#" style="display:block"><span><a>
-              <form id="searchform">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchbox">
+          <li id="search-link" style="display:block" tabIndex="0"><span><a tabIndex="0">
+              <form id="searchform" tabIndex="0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchbox" tabIndex="0">
               </form>
             </a>
               </span>
             </li> 
-            <li style="list-style-type: none;"><a id="searchbutton" href="#" style="margin-left: 0px;">
-                    <button class="btn btn-primary" type="submit" id="srch"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg></button>
+            <li style="list-style-type: none;"><a id="searchbutton" href="#" style="margin-left: 0px;" aria-label="SearchButton">
+                    <button class="btn btn-primary" type="submit" id="srch" data-toggle="tooltip" data-placement="bottom" title="Search"><label style="padding-bottom: 0px; margin-bottom: 0px;"> Search <svg xmlns="http://www.w3.org/2000/svg" alt="Magnifying Glass" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/><title>Magnifying Glass</title>
+                    </svg></label></button>
                   </a> 
                 </li>
           <li style="list-style-type: none;  display:flex;" class="spacer">&nbsp;</li>

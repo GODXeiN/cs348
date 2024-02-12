@@ -20,10 +20,11 @@ var cardTemplate = `<div class="card-deck">
 <li style="list-style-type: none;" class="list-group-item shop-product-details shop-product-price" data-field="price" data-num="[EVEGPRODUCT#]"></li>
 <li style="list-style-type: none;" class="list-group-item shop-product-details shop-product-units" data-field="units" data-num="[EVEGPRODUCT#]"></li>
 <li style="list-style-type: none;" class="shop-product-buying" data-num="[EVEGPRODUCT#]"></li>
-<li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Decrease quantity">-</button>
-<input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%; text-align:center">
-<button class="btn adjustUp btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Increase quantity">+</button> <button class="btn btn-success center-block addToBasket" data-toggle="modal" data-target="#exampleModal">Add to Cart</button></li>
-</ul></div></div></div></li>`;
+<li class="adjustDiv center-block  list-group-item shop-product-details">
+<div style="list-style-type: none;" class="shop-product-details" data-field="label" data-num="[EVEGPRODUCT#]"></div>
+<div class="shop-product-details" data-field="numberChange" data-num="[EVEGPRODUCT#]"></div>
+<button class="btn btn-success center-block addToBasket" data-toggle="modal" data-target="#exampleModal">Add to Cart</button></li>
+</li>`;
 
   function init(){
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
@@ -256,13 +257,19 @@ var cardTemplate = `<div class="card-deck">
           element.innerText = productDetails[num].name;
           break;
         case "img":
-          element.innerHTML = "<span class=\"imgspacer\"></span><img src=\"images/"+productDetails[num].image + "\"></img>";
+          element.innerHTML = "<span class=\"imgspacer\"></span><img src=\"images/"+productDetails[num].image + "\" alt=" + productDetails[num].name +"></img>";
           break;
         case "price":
           element.innerHTML = "<span> <b>Price</b>: £"+(productDetails[num].price/100).toFixed(2)+"</span>";
           break;
         case "units":
           element.innerHTML = "<span> <b>Amount</b>: "+productDetails[num].packsize + " " + productDetails[num].units+"</span>";
+          break;
+        case "label":
+          element.innerHTML = "<span> <label for=\"quantity"+productDetails[num].name.split(" ").join("")+"\">Quantity:</label></span>";
+          break;
+        case "numberChange":
+          element.innerHTML = "<button aria-label=\"list-group-item\" class=\"btn adjustDown btn btn-success\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Decrease quantity\">-</button> <input name=\"quantity"+productDetails[num].name.split(" ").join("")+"\" id=\"quantity"+productDetails[num].name.split(" ").join("")+"\"class=\"buyInput\" data-num=\""+productDetails[num].productID+"\" min=\"0\" value=\"0\" type=\"number\" style=\"width: 70%; text-align:center\"></input> <button class=\"btn adjustUp btn btn-success\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Increase quantity\">+</button> ";
           break;
       }
 
