@@ -215,6 +215,18 @@ html{
     border: 15px #333;
     box-shadow: 0 16px 32px 0 rgba(0,0,0,1);
     }
+    .count {
+        background-color: #31B0D5;
+        border-radius: 50%;
+        display: inline-block;
+        position: fixed;
+        bottom: 110px;
+        right: 110px;
+        border: 0;
+        z-index: 9999;
+        border: 15px #333;
+        }
+      
   
   /* Navbar links */
 #navbar a {

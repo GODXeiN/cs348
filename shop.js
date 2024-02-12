@@ -22,9 +22,7 @@ var cardTemplate = `<div class="card-deck">
 <li style="list-style-type: none;" class="shop-product-buying" data-num="[EVEGPRODUCT#]"></li>
 <li class="adjustDiv center-block list-group-item"><button class="btn adjustDown btn btn-success">-</button>
 <input class="buyInput" data-num="[EVEGPRODUCT#]" min="0" value="0" type="number" style="width: 70%; text-align:center">
-<button class="btn adjustUp btn btn-success">+</button></li>
-<li style="list-style-type: none;" class="list-group-item productBasketDiv"><button class="btn btn-success center-block addToBasket" onclick="show('popup')">
-</svg>Add to Cart</button></li>
+<button class="btn adjustUp btn btn-success">+</button> <button class="btn btn-success center-block addToBasket" onclick="show('popup')">Add to Cart</button></li>
 </ul></div></div></div></li>`;
 
   function init(){
@@ -102,14 +100,14 @@ var cardTemplate = `<div class="card-deck">
       elements[eIn].addEventListener("click",decrement);
     }
     elements = document.getElementsByClassName("buyInput");
-    for(eIn = 0; eIn < elements.length; eIn++){
-      elements[eIn].removeEventListener("change",inputchange);
-      elements[eIn].addEventListener("change",inputchange);
-    }
+    // for(eIn = 0; eIn < elements.length; eIn++){
+    //   elements[eIn].removeEventListener("change",inputchange);
+    //   elements[eIn].addEventListener("change",inputchange);
+    // }
     elements = document.getElementsByClassName("addToBasket");
     for(eIn = 0; eIn < elements.length; eIn++){
-      elements[eIn].removeEventListener("click");
-      elements[eIn].addEventListener("click");
+      elements[eIn].removeEventListener("click",inputchange);
+      elements[eIn].addEventListener("click",inputchange);
     }
   }
 
@@ -117,7 +115,7 @@ var cardTemplate = `<div class="card-deck">
   //When the input changes, add a 'bought' class if more than one is added
   function inputchange(ev){
     var thisID = ev.target.parentElement.closest(".card__content").getAttribute("data-num");
-    changeQuantity(thisID,ev.target.parentElement.closest(".shop-product-buying").getElementsByTagName("input")[0].value);
+    changeQuantity(thisID,ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value);
   }
 
   /*
@@ -137,7 +135,8 @@ var cardTemplate = `<div class="card-deck">
     if(basket[thisID] === undefined){
       basket[thisID] = 0;
     }
-    changeQuantity(thisID,parseInt(basket[thisID])+1);
+    ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value = Number(ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value) + Number("1");
+    // changeQuantity(thisID,parseInt(basket[thisID])+1);
   }
 
   //Subtract 1 from the quantity
@@ -145,11 +144,8 @@ var cardTemplate = `<div class="card-deck">
     var thisID = ev.target.parentElement.closest(".card__content").getAttribute("data-num");
     if(basket[thisID] === undefined){
       changeQuantity(thisID,1);
-    }else{
-      if(basket[thisID] > 0){
-        changeQuantity(thisID,parseInt(basket[thisID])-1);
-      }
     }
+    if (Number(ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value <= 0)) {} else { ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value = Number(ev.target.parentElement.closest(".card__content").getElementsByTagName("input")[0].value) - Number("1");}
   }
 
   function filterFunction(a){
@@ -302,6 +298,8 @@ var cardTemplate = `<div class="card-deck">
     }catch(e){
       
     }
+    priceHTML = `&#163;${(total / 100).toFixed(2)}`;
+    document.querySelector("#count").innerHTML = priceHTML
     return total;
   }
 
