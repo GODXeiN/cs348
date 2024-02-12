@@ -60,6 +60,10 @@
   background-color: #417041;
   border-color: #417041;
 }
+.btn-danger {
+  background-color: #A8403E;
+  border-color: #A8403E;
+}
   
   #popupSuccess:after {
     position: fixed;
