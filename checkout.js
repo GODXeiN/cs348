@@ -8,7 +8,6 @@ function init(){
   //initProducts takes a callback function - when the products are loaded the basket will be recalculated
   $('document').ready(function(){
     let buttons = document.getElementsByClassName("buyInput");
-    console.log(buttons);
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener("keyup", function () {
         try {
@@ -21,8 +20,6 @@ function init(){
         console.log(buttons[i]);
         productid = this.dataset.num;
         test = this.value;
-        console.log(test);
-        console.log(productid);
         if (test != null && productid != null) {
           basket[productid] = test;
           setCookie('basket', JSON.stringify(basket));
