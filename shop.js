@@ -225,7 +225,7 @@ var cardTemplate = `<div class="card-deck">
     }
 
     if (numProductsFruit == 0 && numProductsOther == 0 && numProductsVeg == 0) {
-      document.querySelector('.productListVegetables').innerHTML = '<div id="sectVeg"><span><h1 style="width: 100%; color:red">Error: No products found from search.<br></h1></span></div>'
+      document.querySelector('.productListVegetables').innerHTML = '<div id="sectVeg"><span><h1 style="width: 100%; color:red; padding-top: 80px">Error: No products found from search.<br></h1></span></div>'
     }
 
     for(var i = 0; i < numProductsFruit; i++){

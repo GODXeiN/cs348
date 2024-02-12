@@ -9,7 +9,7 @@ function init(){
   $('document').ready(function(){
     let buttons = document.getElementsByClassName("buyInput");
     for (let i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("keyup", function () {
+      buttons[i].addEventListener("change", function () {
         try {
           basket=JSON.parse(getCookie("basket"));
         }
@@ -69,6 +69,7 @@ function calculateBasket(inputID, newNumber){
   if (newNumber == null && inputID != null) {
   delete basket[inputID];
   setCookie('basket', JSON.stringify(basket));
+  init();
   }
   if (!(error == 1 || Object.keys(basket).length == 0)) {
   for(const productID in basket) {
