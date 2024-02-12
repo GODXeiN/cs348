@@ -203,7 +203,7 @@ html{
   #mobile {
     display: none;
     position: fixed;
-    top: 64px;
+    top: 64.4px;
     width: 100%;
     z-index: 10000;
   }
@@ -581,6 +581,7 @@ form.customerDetails button{
     .divider img {
       display: none;
     }
+    
   }
   @media screen and (max-width:1190px) {
     .navbar-links li{
