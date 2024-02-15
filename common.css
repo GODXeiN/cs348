@@ -469,6 +469,7 @@ form {
     background-color:rgba(255, 255, 255, 1);
     box-shadow: -20px -20px 20px -20px black;
     padding: 20px;
+    z-index: 99999999999999999999999999;
     /* display: none; */
 }
 
